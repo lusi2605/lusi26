@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My APK Store</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #16a34a;
+      color: white;
+      padding: 22px 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      font-size: 14px;
+    }
+
+    .search-box {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 10px 15px 40px;
+    }
+
+    .title {
+      margin: 20px 0 15px;
+      font-size: 22px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 10px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .app-card {
+      background: white;
+      border-radius: 14px;
+      padding: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .app-top {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .app-icon {
+      width: 65px;
+      height: 65px;
+      border-radius: 14px;
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .app-info h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .app-info p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .download {
+      display: block;
+      margin-top: 15px;
+      background: #16a34a;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .apps {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>My APK Store</h1>
+    <p>Discover useful Android applications</p>
+  </header>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="search"
+      placeholder="🔍 Search apps..."
+      onkeyup="searchApps()"
+    >
+  </div>
+
+  <main class="container">
+
+    <h2 class="title">Categories</h2>
+
+    <div class="categories">
+      <div class="category">All</div>
+      <div class="category">Games</div>
+      <div class="category">Tools</div>
+      <div class="category">Education</div>
+      <div class="category">Entertainment</div>
+    </div>
+
+    <h2 class="title">Popular Apps</h2>
+
+    <div class="apps" id="appList">
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon">📱</div>
+
+          <div class="app-info">
+            <h3>Sample App</h3>
+            <p>Version 1.0 • 25 MB</p>
+          </div>
+        </div>
+
+        <a class="download" href="#" onclick="return demoDownload()">
+          Download APK
+        </a>
+      </div>
+
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon">🎮</div>
+
+          <div class="app-info">
+            <h3>Sample Game</h3>
+            <p>Version 2.0 • 80 MB</p>
+          </div>
+        </div>
+
+        <a class="download" href="#" onclick="return demoDownload()">
+          Download APK
+        </a>
+      </div>
+
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon">🛠️</div>
+
+          <div class="app-info">
+            <h3>Useful Tools</h3>
+            <p>Version 3.1 • 18 MB</p>
+          </div>
+        </div>
+
+        <a class="download" href="#" onclick="return demoDownload()">
+          Download APK
+        </a>
+      </div>
+
+
+      <div class="app-card">
+        <div class="app-top">
+          <div class="app-icon">📚</div>
+
+          <div class="app-info">
+            <h3>Learning App</h3>
+            <p>Version 1.5 • 32 MB</p>
+          </div>
+        </div>
+
+        <a class="download" href="#" onclick="return demoDownload()">
+          Download APK
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 My APK Store
+  </footer>
+
+
+  <script>
+    function searchApps() {
+      let input = document.getElementById("search").value.toLowerCase();
+      let cards = document.querySelectorAll(".app-card");
+
+      cards.forEach(function(card) {
+        let name = card.querySelector("h3").innerText.toLowerCase();
+
+        if (name.includes(input)) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    function demoDownload() {
+      alert("Demo button. Add an authorized APK download link here.");
+      return false;
+    }
+  </script>
+
+</body>
+          </html>
